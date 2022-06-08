@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main-container {
+  background: rgba(226, 230, 233, 255);
+  /* background: #ededed; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.sub-container {
+  width: 75%;
+  /* min-height: 500px; */
+  min-height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 255);
+  /* background: #fff; */
+  display: flex;
+  box-shadow: 15px 5px 30px rgba(0, 0, 0, 0.3);
+}
+.ant-form-item-label {
+  width: 80px;
+}
+/* .ant-btn {
+  display: flex;
+  width: 100px;
+} */
+.content-section {
+  width: 80%;
+  padding: 30px;
+  height: auto;
+  display: grid;
+  /* justify-content: center; */
+  align-items: center;
+}
+.logo-section {
+  display: flex;
+  flex-basis: 60%;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  background: rgba(245, 246, 248, 255);
+  padding: 30px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 15px 5px 30px rgba(212, 204, 204, 0.3);
+}
+.logo-section .logo {
+  font-size: 50px;
+  font-family: fantasy;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    background: #ededed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .sub-container {
+    width: 80%;
+    min-height: 620px;
+    /* min-height: 500px; */
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 15px 5px 30px rgba(0, 0, 0, 0.3);
+  }
+  .content-section {
+    width: 100%;
+    /* padding: 50px; */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    padding-top: 30px;
+  }
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    flex-basis: unset;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(245, 246, 248, 255);
+    height: 300px;
+    padding: 0 20px 10px 20px;
+  }
+
+  .ant-col-offset-6 {
+    margin-left: 35% !important;
+  }
+}
+@media (max-width: 575px) {
+  .ant-form-item .ant-form-item-control {
+    flex: 1 1 !important;
+    min-width: 100%;
+  }
+  .ant-col-offset-6 {
+    margin-left: 5% !important;
+  }
+}
