@@ -18,40 +18,41 @@ const Home = () => {
   const user = useSelector(selectUser);
 
   useEffect(() => {
+    const getSheduleApi = () => {
+      // updateLoading(true);
+      // const head = {
+      //   headers: {
+      //     "api-header-security":
+      //       "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
+      //     Authorization: `Bearer ${user.accessToken}`,
+      //   },
+      // };
+      let config = {
+        headers: {
+          "api-header-security":
+            "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      };
+
+      apiInstance
+        .get(
+          "https://api.quikdr.com/schedules?doctorsId=364&organisationsId=140&&date[$gte]=2022-05-10&date[$lte]=2022-05-30&$skip=0&$limit=500&$sort[date]=1&$sort[time]=1",
+          config
+        )
+        .then((res) => {
+          if (res.data) {
+            updateData(res.data);
+            updateLoading(false);
+          }
+        }).catch = (e) => {
+        console.log(e);
+        updateLoading(false);
+      };
+    };
     getSheduleApi();
   }, []);
-  const getSheduleApi = () => {
-    // updateLoading(true);
-    // const head = {
-    //   headers: {
-    //     "api-header-security":
-    //       "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
-    //     Authorization: `Bearer ${user.accessToken}`,
-    //   },
-    // };
-    let config = {
-      headers: {
-        "api-header-security":
-          "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    };
 
-    apiInstance
-      .get(
-        "https://api.quikdr.com/schedules?doctorsId=364&organisationsId=140&&date[$gte]=2022-05-10&date[$lte]=2022-05-30&$skip=0&$limit=500&$sort[date]=1&$sort[time]=1",
-        config
-      )
-      .then((res) => {
-        if (res.data) {
-          updateData(res.data);
-          updateLoading(false);
-        }
-      }).catch = (e) => {
-      console.log(e);
-      updateLoading(false);
-    };
-  };
   const onSubmit = () => {
     dispatch(logout(null));
   };
