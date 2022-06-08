@@ -13,15 +13,15 @@ const Home = () => {
   const [data, updateData] = useState([]);
   const [selectedData, updateSelectedData] = useState("");
   const [showList, updateShowList] = useState(false);
-  const [loading, updateLoading] = useState(false);
+  const [loading, updateLoading] = useState(true);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
   useEffect(() => {
     getSheduleApi();
-  });
+  }, []);
   const getSheduleApi = () => {
-    updateLoading(true);
+    // updateLoading(true);
     // const head = {
     //   headers: {
     //     "api-header-security":
@@ -39,7 +39,7 @@ const Home = () => {
 
     apiInstance
       .get(
-        "https://api.quikdr.com/schedules?doctorsId=364&organisationsId=140&&date[$gte]=2022-05-10 &date[$lte]=2022-05-30&$skip=0&$limit=500&$sort[date]=1&$sort[time]=1",
+        "https://api.quikdr.com/schedules?doctorsId=364&organisationsId=140&&date[$gte]=2022-05-10&date[$lte]=2022-05-30&$skip=0&$limit=500&$sort[date]=1&$sort[time]=1",
         config
       )
       .then((res) => {
