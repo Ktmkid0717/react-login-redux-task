@@ -8,7 +8,7 @@ const SlotListing = (props) => {
       title: "Id",
       dataIndex: "id",
       key: "id",
-      render: (text) => <a>{text}</a>,
+      // render: (text) => <a>{text}</a>,
       // responsive: ["sm"],
     },
     {
