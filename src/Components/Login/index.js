@@ -66,7 +66,7 @@ const Login = () => {
           name: "Ant Design",
         }}
       >
-        {contextHolder}
+        {/* {contextHolder} */}
         <div className="main-container">
           <div className="sub-container">
             <div className="logo-section">
