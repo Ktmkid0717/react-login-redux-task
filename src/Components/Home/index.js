@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import { Form, Input, Button, notification } from "antd";
+import { Form, Button } from "antd";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { logout } from "../Redux/userReducer";
@@ -19,21 +19,21 @@ const Home = () => {
 
   useEffect(() => {
     getSheduleApi();
-  }, []);
+  });
   const getSheduleApi = () => {
     updateLoading(true);
-    const head = {
-      headers: {
-        "api-header-security":
-          "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    };
+    // const head = {
+    //   headers: {
+    //     "api-header-security":
+    //       "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
+    //     Authorization: `Bearer ${user.accessToken}`,
+    //   },
+    // };
     let config = {
       headers: {
         "api-header-security":
           "C1kxIHN1D81zT7DXFQINoiQKDRXIMLCWTugbg9CorYg5SIxHsBBLNvNbebCxoC1qWhtx",
-        // Authorization: `Bearer ${user.accessToken}`,
+        Authorization: `Bearer ${user.accessToken}`,
       },
     };
 

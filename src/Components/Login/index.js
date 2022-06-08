@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import "antd/dist/antd.css";
 import { useDispatch } from "react-redux";
-import { Form, Input, Button, notification } from "antd";
+import { Form, Input, Button } from "antd";
 import { apiInstance } from "../Apis/AuthApi";
 import { login } from "../Redux/userReducer";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ const Login = () => {
   const Context = React.createContext({
     name: "Default",
   });
-  const [api, contextHolder] = notification.useNotification();
+  // const [api, contextHolder] = notification.useNotification();
 
   const onSubmit = async (e) => {
     if (e && e.email && e.password) {

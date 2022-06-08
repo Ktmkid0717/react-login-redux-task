@@ -7,7 +7,7 @@ const PrivateRoute = ({ user, redirectPath, children }) => {
     return <Navigate to="/auth" />;
   }
 
-  return children;
+  // return children;
 };
 
 export default PrivateRoute;

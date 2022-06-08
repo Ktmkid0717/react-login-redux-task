@@ -1,6 +1,6 @@
 import axios from "axios";
-const API_BASE_URL = "https://api.quikdr.com";
-const userLoginUrl = "/authentication";
+// const API_BASE_URL = "https://api.quikdr.com";
+// const userLoginUrl = "/authentication";
 export const apiInstance = axios.create({
   baseUrl: "https://api.quikdr.com",
   headers: {

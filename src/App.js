@@ -4,13 +4,13 @@ import {
   Routes,
   Route,
   Navigate,
-  useHistory,
+  // useHistory,
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
 import { selectUser } from "./Components/Redux/userReducer";
-import PrivateRoute from "./Components/Login/PrivateRoute";
+// import PrivateRoute from "./Components/Login/PrivateRoute";
 function App() {
   const user = useSelector(selectUser);
   return (
