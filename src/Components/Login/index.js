@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import "antd/dist/antd.css";
 import { useDispatch } from "react-redux";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, notification } from "antd";
 import { apiInstance } from "../Apis/AuthApi";
 import { login } from "../Redux/userReducer";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,7 @@ const Login = () => {
   const Context = React.createContext({
     name: "Default",
   });
-  // const [api, contextHolder] = notification.useNotification();
+  const [api, contextHolder] = notification.useNotification();
 
   const onSubmit = async (e) => {
     if (e && e.email && e.password) {
@@ -45,20 +45,22 @@ const Login = () => {
 
             navigate("/app");
           }
-        }).catch = (e) => {
-        console.log(e);
-      };
+        })
+        .catch((err) => {
+          openNotification("bottomRight", "invalid Credentials" + err.message);
+          // console.log(err.message);
+        });
     }
   };
-  // const openNotification = (placement, message) => {
-  //   api.info({
-  //     message: `Notification ${placement}`,
-  //     description: (
-  //       <Context.Consumer>{({ name }) => `${message}!`}</Context.Consumer>
-  //     ),
-  //     placement,
-  //   });
-  // };
+  const openNotification = (placement, message) => {
+    api.info({
+      message: `Notification Alert`,
+      description: (
+        <Context.Consumer>{({ name }) => `${message}!`}</Context.Consumer>
+      ),
+      placement,
+    });
+  };
   return (
     <>
       <Context.Provider
@@ -66,7 +68,7 @@ const Login = () => {
           name: "Ant Design",
         }}
       >
-        {/* {contextHolder} */}
+        {contextHolder}
         <div className="main-container">
           <div className="sub-container">
             <div className="logo-section">
