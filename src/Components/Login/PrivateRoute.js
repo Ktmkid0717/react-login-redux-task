@@ -1,13 +1,12 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-const PrivateRoute = ({ user, redirectPath, children }) => {
-  if (user) {
-    return <Navigate to={redirectPath} replace />;
-  } else {
-    return <Navigate to="/auth" />;
-  }
+import { selectUser } from "../Redux/userReducer";
+import { useSelector } from "react-redux";
 
-  // return children;
+const PrivateRoute = ({ children }) => {
+  const user = useSelector(selectUser);
+  const auth = user;
+  return auth ? children : <Navigate to="/auth" />;
 };
 
 export default PrivateRoute;

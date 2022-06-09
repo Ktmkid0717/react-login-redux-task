@@ -4,20 +4,19 @@ import {
   Routes,
   Route,
   Navigate,
-  Redirect,
   // useHistory,
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Home from "./Components/Home";
 import Login from "./Components/Login";
-import { selectUser } from "./Components/Redux/userReducer";
-// import PrivateRoute from "./Components/Login/PrivateRoute";
+// import { selectUser } from "./Components/Redux/userReducer";
+import PrivateRoute from "./Components/Login/PrivateRoute";
 function App() {
-  const user = useSelector(selectUser);
-  const PrivateRoute = ({ children }) => {
-    const auth = user;
-    return auth ? children : <Navigate to="/auth" />;
-  };
+  // const user = useSelector(selectUser);
+  // const PrivateRoute = ({ children }) => {
+  //   const auth = user;
+  //   return auth ? children : <Navigate to="/auth" />;
+  // };
   return (
     <>
       <BrowserRouter>
