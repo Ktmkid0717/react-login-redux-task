@@ -47,10 +47,7 @@ const Login = () => {
           }
         })
         .catch((err) => {
-          openNotification(
-            "bottomRight",
-            "Invalid Credentials" + " " + err.message
-          );
+          openNotification("bottomRight", "Invalid Credentials " + err.message);
           // console.log(err.message);
         });
     }
