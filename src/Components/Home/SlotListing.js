@@ -2,7 +2,6 @@ import React from "react";
 import { Table } from "antd";
 
 const SlotListing = (props) => {
-  console.log(props.dataSource);
   const columns = [
     {
       title: "Id",
