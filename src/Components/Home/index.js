@@ -8,11 +8,13 @@ import { selectUser } from "../Redux/userReducer";
 import { apiInstance } from "../Apis/AuthApi";
 import SoltListing from "./SlotListing";
 import { Spin, Empty } from "antd";
+import moment from "moment";
 
 const Home = () => {
   const [data, updateData] = useState([]);
   const [selectedData, updateSelectedData] = useState("");
   const [showList, updateShowList] = useState(false);
+  const [activeId, setActiveId] = useState();
   const [loading, updateLoading] = useState(true);
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
@@ -89,7 +91,11 @@ const Home = () => {
                 </div>
               ) : data && data.data ? (
                 data.data.map((item, index) => (
-                  <div className="container">
+                  <div
+                    className={
+                      activeId === index ? "container active" : "container"
+                    }
+                  >
                     <div className="section-head">
                       <div
                         className="head"
@@ -107,12 +113,13 @@ const Home = () => {
                             },
                           ];
                           updateSelectedData(source);
+                          setActiveId(index);
                           // updateSelectedData(item);
 
                           updateShowList(true);
                         }}
                       >
-                        {item.time}
+                        {moment(item.time, "HH:mm:ss").format("LT")}
                       </div>
                     </div>
                   </div>
